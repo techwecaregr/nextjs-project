@@ -10,7 +10,7 @@ import { useTheme } from 'next-themes';
 
 export default function ModeToggle() {
   const { setTheme, theme } = useTheme();
-  let client_theme =  theme;
+  const client_theme =  theme;
 
   const toggleTheme = ()=>{
     if(client_theme == 'dark'){

@@ -9,7 +9,7 @@ function RepairsContainer({repairs}:{repairs:Repair[] | undefined}){
         <Card className='transform group-hover:shadow-xl transition-shadow duration-500 bg-card'>
             <CardContent className='p-4 flex flex-row flex-wrap	'>
             {
-                repairs.map((repair, index) => {
+                repairs.map((repair) => {
                     if(repair.price != '0' && repair.price != '-')
                     return (
                         <RepairContainer repair = {repair}/>

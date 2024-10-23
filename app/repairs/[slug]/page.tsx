@@ -10,7 +10,7 @@ async function CategoryPage({
   const layout = searchParams.layout || 'grid';
   const search = searchParams.search || '';
   const slug = params.slug;
-  let xx  = await searchParentSlugForSubCategoriesAsync(slug);
+  const xx  = await searchParentSlugForSubCategoriesAsync(slug);
   if(xx.length > 0)
     return(
       <CategoriesContainer  parentSlug={slug}/>

@@ -7,7 +7,7 @@ async function ProductContainer({product} : {product:Product | null}){
     const { name, parentCategorySlug } = product;
      //let repairs:Repair[] = [];
 
-     let repairs:Repair[] | undefined =  await getProductRepairsAsync(product.id);
+     const repairs:Repair[] | undefined =  await getProductRepairsAsync(product.id);
     if(product?.childCategorySlug)
         
         return (

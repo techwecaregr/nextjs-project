@@ -15,7 +15,7 @@ import ProductContainer from '@/components/single-product/ProductContainer';
   console.log(params)
   const layout = searchParams.layout || 'grid';
   const search = searchParams.search || '';
-  let product = await fetchSingleProductAsync(params.child_slug) || {id: '', name: '', slug: '', img: '', parentCategoryID: '', parentCategorySlug: ''} as Product;
+  const product = await fetchSingleProductAsync(params.child_slug) || {id: '', name: '', slug: '', img: '', parentCategoryID: '', parentCategorySlug: ''} as Product;
   const category = fetchChildCategoryProducts(params.child_slug);
   if(category.length > 0)
     return (
