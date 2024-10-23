@@ -1,4 +1,3 @@
-import { formatCurrency } from '@/utils/format';
 import Link from 'next/link';
 import { Card, CardContent } from '@/components/ui/card';
 import {Category} from '@/utils/actions'
@@ -10,7 +9,7 @@ function CategoriesList({ categories }: { categories: Category[] }) {
   return (
     <div className='mt-12 grid gap-y-8'>
       {categories.map((category) => {
-        const { name, img } = category;
+        const { name, img_light } = category;
         //const dollarsAmount = formatCurrency(price);
         const categoryID = category.slug;
         return (
@@ -20,7 +19,7 @@ function CategoriesList({ categories }: { categories: Category[] }) {
                 <CardContent className='p-8 gap-y-4 grid md:grid-cols-3 flex justify-between items-center'>
                   <div className='relative h-64  md:h-48 md:w-48'>
                     <Image
-                      src={img}
+                      src={img_light}
                       alt={name}
                       fill
                       sizes='(max-width:768px) 100vw,(max-width:1200px) 50vw,33vw'

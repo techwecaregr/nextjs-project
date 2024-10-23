@@ -1,16 +1,13 @@
 import BreadCrumbs from '@/components/single-product/BreadCrumbs';
 import RepairContent from '@/components/single-product/RepairContent';
-import { Product, getProductRepairs, getProductRepairsAsync, Repair } from '@/utils/actions';
+import { Product, getProductRepairsAsync, Repair } from '@/utils/actions';
 
-async function ProductContainer({product} : {product:Product}){
+async function ProductContainer({product} : {product:Product | null}){
+  if(product){
     const { name, parentCategorySlug } = product;
-     //var repairs:Repair[] = [];
-    console.log('teeest2');
-    console.log('teeest2');
+     //let repairs:Repair[] = [];
 
-    var repairs =  await getProductRepairsAsync(product.id);
-    console.log("vlaves");
-    console.log(repairs);
+     let repairs:Repair[] | undefined =  await getProductRepairsAsync(product.id);
     if(product?.childCategorySlug)
         
         return (
@@ -25,6 +22,9 @@ async function ProductContainer({product} : {product:Product}){
             <RepairContent repairs={repairs} product={product}/>
         </section>
       );
+  }
+  else return (<></>);
+
 }
 
 export default ProductContainer;

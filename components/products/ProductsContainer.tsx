@@ -1,6 +1,6 @@
 import ProductsGrid from './ProductsGrid';
 import ProductsList from './ProductsList';
-import { fetchCategoryProducts, fetchCategoryProductsAsync, fetchChildCategoryProductsAsync, Product, fetchChildCategoryProducts } from '@/utils/actions';
+import { fetchCategoryProductsAsync, fetchChildCategoryProductsAsync } from '@/utils/actions';
 import BreadCrumbs from '@/components/single-product/BreadCrumbs';
 async function ProductsContainer({
   layout,
@@ -14,12 +14,12 @@ async function ProductsContainer({
   isChild:boolean;
   parentSlug?:string
 }) {
-  // var products:Product[] =  [];
+  // let products:Product[] =  [];
   // if(isChild)
   //   products = fetchChildCategoryProducts(slug);
   // else
   //   products = fetchCategoryProducts(slug);
-  var products;
+  let products;
   if(isChild)
     products = await fetchChildCategoryProductsAsync(slug)
   else  products =  await fetchCategoryProductsAsync(slug);

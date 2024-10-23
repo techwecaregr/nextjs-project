@@ -1,5 +1,5 @@
 'use client';
-import { Mail, Phone, MapPin, Facebook, Twitter, Instagram } from "lucide-react"; 
+import { Mail, Phone, MapPin, Facebook, Instagram } from "lucide-react"; 
 import logo_dark from '@/public/images/logo-dark-sm2.png';
 import logo_light from '@/public/images/logo-light-sm2.png';
 import Link from 'next/link';
@@ -8,7 +8,7 @@ import { useTheme } from 'next-themes';
 import { useState, useEffect } from 'react';
 // Example using icons from Shadcn 
 const Footer = () => { 
-    const { setTheme, theme } = useTheme();
+    const { theme } = useTheme();
     const [mounted, setMounted]   = useState(false);
     useEffect(()=>{
         setMounted(true);

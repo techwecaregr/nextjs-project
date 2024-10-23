@@ -1,4 +1,4 @@
-import { fetchSingleProduct, fetchSingleProductAsync,  fetchChildCategoryProducts, Product } from '@/utils/actions';
+import { fetchSingleProductAsync,  fetchChildCategoryProducts, Product } from '@/utils/actions';
 import ProductsContainer from '@/components/products/ProductsContainer';
 import ProductContainer from '@/components/single-product/ProductContainer';
 
@@ -15,7 +15,7 @@ import ProductContainer from '@/components/single-product/ProductContainer';
   console.log(params)
   const layout = searchParams.layout || 'grid';
   const search = searchParams.search || '';
-  var product = await fetchSingleProductAsync(params.child_slug) || {id: '', name: '', slug: '', img: '', parentCategoryID: '', parentCategorySlug: ''} as Product;
+  let product = await fetchSingleProductAsync(params.child_slug) || {id: '', name: '', slug: '', img: '', parentCategoryID: '', parentCategorySlug: ''} as Product;
   const category = fetchChildCategoryProducts(params.child_slug);
   if(category.length > 0)
     return (

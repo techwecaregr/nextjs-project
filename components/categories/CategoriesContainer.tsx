@@ -1,5 +1,5 @@
 import CategoriesGrid from './CategoriesGrid';
-import { fetchAllChildCategoriesAsync, fetchAllParentCategoriesAsync, fetchAllParentCategories, fetchAllChildCategories, Category } from '@/utils/actions';
+import { fetchAllChildCategoriesAsync, fetchAllParentCategoriesAsync } from '@/utils/actions';
 import BreadCrumbs from '@/components/single-product/BreadCrumbs';
 
 async function CategoriesContainer({
@@ -7,11 +7,11 @@ async function CategoriesContainer({
 }: {
   parentSlug?: string;
 }) {
-  // var categories:Category[]= [];
+  // let categories:Category[]= [];
   // if(parentSlug!=undefined)
   //   categories = fetchAllChildCategories(parentSlug)
   // else  categories =  fetchAllParentCategories();
-  var categories;
+  let categories;
   if(parentSlug!=undefined)
     categories = await fetchAllChildCategoriesAsync(parentSlug)
   else  categories =  await fetchAllParentCategoriesAsync();

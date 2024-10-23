@@ -1,5 +1,5 @@
 import ProductsContainer from '@/components/products/ProductsContainer';
-import { searchParentSlugForSubCategories, searchParentSlugForSubCategoriesAsync, ChildCategory } from '@/utils/actions';
+import {  searchParentSlugForSubCategoriesAsync } from '@/utils/actions';
 import CategoriesContainer from '@/components/categories/CategoriesContainer';
 async function CategoryPage({
   searchParams, params
@@ -10,9 +10,7 @@ async function CategoryPage({
   const layout = searchParams.layout || 'grid';
   const search = searchParams.search || '';
   const slug = params.slug;
-  var xx  = await searchParentSlugForSubCategoriesAsync(slug);
-  console.log('xx')
-  console.log(xx)
+  let xx  = await searchParentSlugForSubCategoriesAsync(slug);
   if(xx.length > 0)
     return(
       <CategoriesContainer  parentSlug={slug}/>

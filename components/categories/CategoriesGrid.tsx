@@ -7,7 +7,7 @@ import {Category} from '@/utils/actions'
 import { useTheme } from 'next-themes';
 import { useState, useEffect } from 'react';
 function CategoriesGrid({categories, parentSlug}:{categories: Category[], parentSlug:string | undefined}){
-  const { setTheme, theme } = useTheme();
+  const { theme } = useTheme();
   const [mounted, setMounted]   = useState(false);
 
   useEffect(()=>{
