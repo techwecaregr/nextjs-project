@@ -1,5 +1,4 @@
 import ProductsGrid from './ProductsGrid';
-import ProductsList from './ProductsList';
 import { fetchCategoryProductsAsync, fetchChildCategoryProductsAsync } from '@/utils/actions';
 import BreadCrumbs from '@/components/single-product/BreadCrumbs';
 async function ProductsContainer({
