@@ -3,13 +3,10 @@ import ProductsList from './ProductsList';
 import { fetchCategoryProductsAsync, fetchChildCategoryProductsAsync } from '@/utils/actions';
 import BreadCrumbs from '@/components/single-product/BreadCrumbs';
 async function ProductsContainer({
-  layout,
   slug,
   isChild,
   parentSlug
 }: {
-  layout: string;
-  search: string;
   slug:string;
   isChild:boolean;
   parentSlug?:string
@@ -35,12 +32,9 @@ async function ProductsContainer({
           <h5 className='text-2xl mt-16'>
             Sorry, no products matched your search...
           </h5>
-        ) : layout === 'grid' ? (
-
-          <ProductsGrid products={products} isChild={isChild}/>
-        ) : (
-          <ProductsList products={products} />
-        )}
+        ) : 
+        <ProductsGrid products={products} isChild={isChild}/>
+      }
       </div>
     </>
   );

@@ -13,14 +13,12 @@ import ProductContainer from '@/components/single-product/ProductContainer';
 ) {
   console.log('params')
   console.log(params)
-  const layout = searchParams.layout || 'grid';
-  const search = searchParams.search || '';
   const product = await fetchSingleProductAsync(params.child_slug) || {id: '', name: '', slug: '', img: '', parentCategoryID: '', parentCategorySlug: ''} as Product;
   const category = fetchChildCategoryProducts(params.child_slug);
   if(category.length > 0)
     return (
       <>
-        <ProductsContainer layout={layout} search={search} slug={params.child_slug} isChild={true} parentSlug={params.slug}/>
+        <ProductsContainer  slug={params.child_slug} isChild={true} parentSlug={params.slug}/>
       </>
     );
   else return (
