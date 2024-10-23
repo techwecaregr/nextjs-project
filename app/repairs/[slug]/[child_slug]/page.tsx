@@ -5,14 +5,11 @@ import ProductContainer from '@/components/single-product/ProductContainer';
 
  async function SingleProductChildCategoryPage(
   {
-    searchParams, params
+    params
   }: {
-    searchParams: { layout?: string; search?: string };
     params: { child_slug: string, slug: string };
   }
 ) {
-  console.log('params')
-  console.log(params)
   const product = await fetchSingleProductAsync(params.child_slug) || {id: '', name: '', slug: '', img: '', parentCategoryID: '', parentCategorySlug: ''} as Product;
   const category = fetchChildCategoryProducts(params.child_slug);
   if(category.length > 0)
