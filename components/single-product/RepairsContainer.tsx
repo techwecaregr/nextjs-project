@@ -12,7 +12,7 @@ function RepairsContainer({repairs}:{repairs:Repair[] | undefined}){
                 repairs.map((repair) => {
                     if(repair.price != '0' && repair.price != '-')
                     return (
-                        <RepairContainer repair = {repair}/>
+                        <RepairContainer key={repair.id} repair = {repair}/>
                     );
                 })
             }
