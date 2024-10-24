@@ -1,9 +1,13 @@
 import ProductsContainer from '@/components/products/ProductsContainer';
 import {  searchParentSlugForSubCategoriesAsync } from '@/utils/actions';
-import {  PageProps } from '@/utils/types';
 import CategoriesContainer from '@/components/categories/CategoriesContainer';
+export interface Params {
+  slug?: string;
+  child_slug?: string;
+  child_id?: string;
+}
 
-const CategoryPage = async ({ params }: PageProps)  => {
+const CategoryPage = async ({ params }: {params:Params}) : Promise<JSX.Element> => {
   const { slug} = params;
 
   const xx  = await searchParentSlugForSubCategoriesAsync(slug || '');
