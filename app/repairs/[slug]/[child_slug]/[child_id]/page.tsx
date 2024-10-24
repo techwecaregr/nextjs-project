@@ -1,8 +1,10 @@
 import { fetchSingleProductAsync } from '@/utils/actions';
 import ProductContainer from '@/components/single-product/ProductContainer';
+import {  PageProps } from '@/utils/types';
 
- async function SingleProductPage({ params }: { params: { child_id: string } }): Promise<JSX.Element> {
-  const product = await fetchSingleProductAsync(params.child_id);
+ async function SingleProductPage({ params }: PageProps): Promise<JSX.Element> {
+  const child_id = params.child_id || '';
+  const product = await fetchSingleProductAsync(child_id);
   return (
     <ProductContainer product={product}/>
   );
