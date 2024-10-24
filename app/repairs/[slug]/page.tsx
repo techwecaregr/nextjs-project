@@ -1,20 +1,19 @@
 import ProductsContainer from '@/components/products/ProductsContainer';
 import {  searchParentSlugForSubCategoriesAsync } from '@/utils/actions';
 import CategoriesContainer from '@/components/categories/CategoriesContainer';
-async function CategoryPage({
-   params
-}: {
-  params: { slug: string };
-}) : Promise<JSX.Element> {
-  const slug = params.slug;
-  const xx  = await searchParentSlugForSubCategoriesAsync(slug);
+import { useParams } from 'next/navigation';
+
+async function CategoryPage() : Promise<JSX.Element> {
+  const {slug} = useParams();
+
+  const xx  = await searchParentSlugForSubCategoriesAsync(slug.toString());
   if(xx.length > 0)
     return(
-      <CategoriesContainer  parentSlug={slug}/>
+      <CategoriesContainer  parentSlug={slug.toString()}/>
     )
   else return (
     <>
-      <ProductsContainer slug={params.slug} isChild={false}/>
+      <ProductsContainer slug={slug.toString()} isChild={false}/>
     </>
   );
 }
