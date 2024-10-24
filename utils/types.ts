@@ -5,5 +5,5 @@ export interface Params {
 }
 
 export interface PageProps {
-    slug: string; child_slug: string; child_id: string
+    params:Params
 }
