@@ -1,4 +1,3 @@
-'use-client';
 
 import CategoriesContainer from '@/components/categories/CategoriesContainer';
 

@@ -1,21 +1,21 @@
-'use-client';
-
 import { fetchSingleProductAsync,  fetchChildCategoryProducts, Product } from '@/utils/actions';
 import ProductsContainer from '@/components/products/ProductsContainer';
 import ProductContainer from '@/components/single-product/ProductContainer';
 
-import { useParams } from 'next/navigation';
 
  async function SingleProductChildCategoryPage(
-): Promise<JSX.Element> {
-  const {child_slug, slug} = useParams();
-
-  const product = await fetchSingleProductAsync(child_slug.toString()) || {id: '', name: '', slug: '', img: '', parentCategoryID: '', parentCategorySlug: ''} as Product;
-  const category = fetchChildCategoryProducts(child_slug.toString());
+  {
+    params
+  }: {
+    params: { child_slug: string, slug: string };
+  }
+) {
+  const product = await fetchSingleProductAsync(params.child_slug) || {id: '', name: '', slug: '', img: '', parentCategoryID: '', parentCategorySlug: ''} as Product;
+  const category = fetchChildCategoryProducts(params.child_slug);
   if(category.length > 0)
     return (
       <>
-        <ProductsContainer  slug={child_slug.toString()} isChild={true} parentSlug={slug.toString()}/>
+        <ProductsContainer  slug={params.child_slug} isChild={true} parentSlug={params.slug}/>
       </>
     );
   else return (
