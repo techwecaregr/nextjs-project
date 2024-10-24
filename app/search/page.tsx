@@ -1,6 +1,6 @@
 import SearchContainer from '@/components/products/SearchContainer';
 
-async function SearchPage({
+function SearchPage({
   searchParams,
 }: {
   searchParams: { layout?: string; search?: string };

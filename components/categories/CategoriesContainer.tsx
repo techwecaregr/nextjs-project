@@ -6,7 +6,7 @@ async function CategoriesContainer({
   parentSlug
 }: {
   parentSlug?: string;
-}) {
+}) : Promise<JSX.Element> {
   // let categories:Category[]= [];
   // if(parentSlug!=undefined)
   //   categories = fetchAllChildCategories(parentSlug)

@@ -1,6 +1,6 @@
 import CategoriesContainer from '@/components/categories/CategoriesContainer';
 
-async function RepairsPage() {
+function RepairsPage() {
   return (
     <>
       <CategoriesContainer   />

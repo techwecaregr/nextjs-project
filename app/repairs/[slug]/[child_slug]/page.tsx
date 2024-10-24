@@ -9,7 +9,7 @@ import ProductContainer from '@/components/single-product/ProductContainer';
   }: {
     params: { child_slug: string, slug: string };
   }
-) {
+): Promise<JSX.Element> {
   const product = await fetchSingleProductAsync(params.child_slug) || {id: '', name: '', slug: '', img: '', parentCategoryID: '', parentCategorySlug: ''} as Product;
   const category = fetchChildCategoryProducts(params.child_slug);
   if(category.length > 0)

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import {Product} from '@/utils/actions'
 
-async function ProductsGrid({products, isChild}:{products: Product[], isChild:boolean}){
+function ProductsGrid({products, isChild}:{products: Product[], isChild:boolean}){
   return (
     <div className='pt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-5'>
       {products.map((product) => {

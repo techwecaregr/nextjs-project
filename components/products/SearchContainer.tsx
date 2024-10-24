@@ -8,7 +8,7 @@ async function SearchContainer({
 }: {
   layout: string;
   search: string;
-}) {
+}) : Promise<JSX.Element> {
   //const searchTerm = search ? `&search=${search}` : '';
   const products =  await fetchSearchProductsAsync(search);
   const totalProducts = products.length;

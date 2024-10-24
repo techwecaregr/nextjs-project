@@ -9,7 +9,7 @@ async function ProductsContainer({
   slug:string;
   isChild:boolean;
   parentSlug?:string
-}) {
+}) : Promise<JSX.Element> {
   // let products:Product[] =  [];
   // if(isChild)
   //   products = fetchChildCategoryProducts(slug);
