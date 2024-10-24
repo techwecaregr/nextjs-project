@@ -8,7 +8,7 @@ export interface Params {
 }
 
 
- const SingleProductChildCategoryPage = async ({ params }: {params:Params}) : Promise<JSX.Element> =>  {
+ const SingleProductChildCategoryPage = async ({ params }: {params:Params}) =>  {
   const {child_slug, slug} = params;
 
   const product = await fetchSingleProductAsync(child_slug || '') || {id: '', name: '', slug: '', img: '', parentCategoryID: '', parentCategorySlug: ''} as Product;

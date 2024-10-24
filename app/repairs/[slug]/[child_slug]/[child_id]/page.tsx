@@ -6,7 +6,7 @@ export interface Params {
   child_id?: string;
 }
 
-const SingleProductPage = async ({ params }: {params:Params}) : Promise<JSX.Element> => {
+const SingleProductPage = async ({ params }: {params:Params})  => {
   const {child_id} = params;
   const product = await fetchSingleProductAsync(child_id || '');
   return (

@@ -7,7 +7,7 @@ export interface Params {
   child_id?: string;
 }
 
-const CategoryPage = async ({ params }: {params:Params}) : Promise<JSX.Element> => {
+const CategoryPage = async ({ params }: {params:Params}) => {
   const { slug} = params;
 
   const xx  = await searchParentSlugForSubCategoriesAsync(slug || '');
