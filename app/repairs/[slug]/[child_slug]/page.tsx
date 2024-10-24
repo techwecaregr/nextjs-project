@@ -1,3 +1,5 @@
+'use-client';
+
 import { fetchSingleProductAsync,  fetchChildCategoryProducts, Product } from '@/utils/actions';
 import ProductsContainer from '@/components/products/ProductsContainer';
 import ProductContainer from '@/components/single-product/ProductContainer';

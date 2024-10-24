@@ -1,3 +1,4 @@
+'use-client';
 import { fetchSingleProductAsync } from '@/utils/actions';
 import ProductContainer from '@/components/single-product/ProductContainer';
 import { useParams } from 'next/navigation';
