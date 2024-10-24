@@ -3,7 +3,7 @@ import {  searchParentSlugForSubCategoriesAsync } from '@/utils/actions';
 import {  PageProps } from '@/utils/types';
 import CategoriesContainer from '@/components/categories/CategoriesContainer';
 
-const CategoryPage = async ({ params }: PageProps) : Promise<JSX.Element> => {
+const CategoryPage = async ({ params }: PageProps)  => {
   const { slug} = params;
 
   const xx  = await searchParentSlugForSubCategoriesAsync(slug || '');

@@ -4,7 +4,7 @@ import ProductContainer from '@/components/single-product/ProductContainer';
 import {  PageProps } from '@/utils/types';
 
 
- const SingleProductChildCategoryPage = async ({ params }: PageProps) : Promise<JSX.Element> =>  {
+ const SingleProductChildCategoryPage = async ({ params }: PageProps) =>  {
   const {child_slug, slug} = params;
 
   const product = await fetchSingleProductAsync(child_slug || '') || {id: '', name: '', slug: '', img: '', parentCategoryID: '', parentCategorySlug: ''} as Product;
