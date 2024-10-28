@@ -1,17 +1,12 @@
-import { fetchSingleProductAsync } from '@/utils/actions';
-import ProductContainer from '@/components/single-product/ProductContainer';
+import ChildIDPage from '@/components/pages/ChildIDPage';
 export interface Params {
   slug?: string;
   child_slug?: string;
   child_id?: string;
 }
 
-const SingleProductPage = async ({ params }: {params:Params})  => {
-  const {child_id} = params;
-  const product = await fetchSingleProductAsync(child_id || '');
-  return (
-    <ProductContainer product={product}/>
-  );
+const SingleProductPage = ({ params }: {params:Params})  => {
+  <ChildIDPage params= {params}/>
 }
 
 

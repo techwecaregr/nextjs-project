@@ -1,25 +1,15 @@
-import ProductsContainer from '@/components/products/ProductsContainer';
-import {  searchParentSlugForSubCategoriesAsync } from '@/utils/actions';
-import CategoriesContainer from '@/components/categories/CategoriesContainer';
-export interface Params {
+
+import SlugPage from '@/components/pages/SlugPage';
+
+ interface Params {
   slug?: string;
   child_slug?: string;
   child_id?: string;
 }
 
-const CategoryPage = async ({ params }: {params:Params}) => {
-  const { slug} = params;
+const CategoryPage = ({ params }: {params:Params}) => {
 
-  const xx  = await searchParentSlugForSubCategoriesAsync(slug || '');
-  if(xx.length > 0)
-    return(
-      <CategoriesContainer  parentSlug={slug}/>
-    )
-  else return (
-    <>
-      <ProductsContainer slug={slug || ''} isChild={false}/>
-    </>
-  );
+  <SlugPage params= {params}/>
 }
 
 export default CategoryPage;
