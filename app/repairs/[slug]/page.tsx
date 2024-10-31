@@ -1,10 +1,8 @@
 import SlugPage from '@/components/pages/SlugPage';
 
-
-const CategoryPage =  ({params}) => {
-
-  const {slug} = params;
-return <SlugPage slug={slug}/>
-}
+const CategoryPage = async ({ params }: { params: { slug: string } }) => {
+    const { slug } = await params;
+    return <SlugPage slug={slug} />;
+};
 
 export default CategoryPage;

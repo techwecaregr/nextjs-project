@@ -1,24 +1,31 @@
-import { fetchSingleProductAsync,  fetchChildCategoryProducts, Product } from '@/utils/actions';
+import { fetchSingleProductAsync, fetchChildCategoryProducts, Product } from '@/utils/actions';
 import ProductsContainer from '@/components/products/ProductsContainer';
 import ProductContainer from '@/components/single-product/ProductContainer';
 
+interface ChildSlugPageProps {
+    child_slug: string;
+    slug: string;
+}
 
-async function ChildSlugPage({child_slug, slug} :{child_slug:string, slug:string}) : Promise<JSX.Element> {
+const ChildSlugPage = async ({ child_slug, slug }: ChildSlugPageProps): Promise<JSX.Element> => {
+    // Fetch the child category products
+    const categoryProducts =  fetchChildCategoryProducts(child_slug);
+    const hasChildCategoryProducts = categoryProducts.length > 0;
 
-    const product = await fetchSingleProductAsync(child_slug || '') || {id: '', name: '', slug: '', img: '', parentCategoryID: '', parentCategorySlug: ''} as Product;
-    const category = fetchChildCategoryProducts(child_slug || '');
-    if(category.length > 0)
-      return (
-        <>
-          <ProductsContainer  slug={child_slug || ''} isChild={true} parentSlug={slug}/>
-        </>
-      );
-    else return (
-      <ProductContainer product={product}/>
-    );
-  }
+    if (hasChildCategoryProducts) {
+        return <ProductsContainer slug={child_slug} isChild={true} parentSlug={slug} />;
+    } else {
+        const product = await fetchSingleProductAsync(child_slug) || {
+            id: '',
+            name: '',
+            slug: '',
+            img: '',
+            parentCategoryID: '',
+            parentCategorySlug: '',
+        } as Product;
 
-
-
+        return <ProductContainer product={product} />;
+    }
+};
 
 export default ChildSlugPage;
