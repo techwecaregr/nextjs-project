@@ -1,6 +1,10 @@
 import ChildIDPage from '@/components/pages/ChildIDPage';
-
-const SingleProductPage = ({ params }: {params: {[key:string]:string}})  => {
+interface Params {
+  slug?: string;
+  child_slug?: string;
+  child_id?: string;
+}
+const SingleProductPage = ({ params }: {params:Params})  => {
   return <ChildIDPage params= {params}/>
 }
 

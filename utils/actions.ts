@@ -138,14 +138,15 @@ const products:Product[] = [
 ];
 
   export const fetchChildCategoryProducts = (slug:string) => {
+    const empty:Product[] = [];
     const {id} = childCategories.find(item=>item.slug == slug) || {name: '', img: ''}
     console.log('slug inner')
     console.log(slug)
     console.log('slug id')
     console.log(id)
     if(id != undefined)
-      return products.filter(item=>item.childCategoryID == id) || {name: '', img: ''}
-    else return []
+      return products.filter(item=>item.childCategoryID == id) || empty
+    else return empty;
   };
 
 
