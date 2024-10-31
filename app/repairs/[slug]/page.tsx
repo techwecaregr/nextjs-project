@@ -9,7 +9,7 @@ import SlugPage from '@/components/pages/SlugPage';
 
 const CategoryPage = ({ params }: {params:Params}) => {
 
-  <SlugPage params= {params}/>
+  return <SlugPage params= {params}/>
 }
 
 export default CategoryPage;

@@ -9,7 +9,7 @@ import ChildSlugPage from '@/components/pages/ChildSlugPage';
 
 
  const SingleProductChildCategoryPage = ({ params }: {params:Params}) =>  {
-  <ChildSlugPage params= {params}/>
+  return <ChildSlugPage params= {params}/>
 }
 
 
