@@ -1,15 +1,20 @@
+import ProductsContainer from '@/components/products/ProductsContainer';
+import {  searchParentSlugForSubCategoriesAsync } from '@/utils/actions';
+import CategoriesContainer from '@/components/categories/CategoriesContainer';
+import { useRouter } from 'next/router';
+const CategoryPage = async () => {
+  const router = useRouter(); //router.query.child_id.toString()
 
-import SlugPage from '@/components/pages/SlugPage';
-
- interface Params {
-  slug?: string;
-  child_slug?: string;
-  child_id?: string;
-}
-
-const CategoryPage = ({ params }: {params:Params}) => {
-
-  return <SlugPage params= {params}/>
+  const xx  = await searchParentSlugForSubCategoriesAsync(router.query.slug.toString() || '');
+  if(xx.length > 0)
+    return(
+      <CategoriesContainer  parentSlug={router.query.slug.toString() }/>
+    )
+  else return (
+    <>
+      <ProductsContainer slug={router.query.slug.toString()  || ''} isChild={false}/>
+    </>
+  );
 }
 
 export default CategoryPage;
