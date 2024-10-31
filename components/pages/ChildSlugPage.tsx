@@ -1,15 +1,10 @@
 import { fetchSingleProductAsync,  fetchChildCategoryProducts, Product } from '@/utils/actions';
 import ProductsContainer from '@/components/products/ProductsContainer';
 import ProductContainer from '@/components/single-product/ProductContainer';
-export interface Params {
-  slug?: string;
-  child_slug?: string;
-  child_id?: string;
-}
 
-async function ChildSlugPage({ params }: {params:Params}) : Promise<JSX.Element> {
-    const {child_slug, slug} = params;
-  
+
+async function ChildSlugPage({child_slug, slug} :{child_slug:string, slug:string}) : Promise<JSX.Element> {
+
     const product = await fetchSingleProductAsync(child_slug || '') || {id: '', name: '', slug: '', img: '', parentCategoryID: '', parentCategorySlug: ''} as Product;
     const category = fetchChildCategoryProducts(child_slug || '');
     if(category.length > 0)

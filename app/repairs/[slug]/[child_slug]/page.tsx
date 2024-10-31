@@ -1,22 +1,14 @@
 
-import { useRouter } from 'next/router';
-import { fetchSingleProductAsync,  fetchChildCategoryProducts, Product } from '@/utils/actions';
-import ProductsContainer from '@/components/products/ProductsContainer';
-import ProductContainer from '@/components/single-product/ProductContainer';
+import ChildSlugPage from '@/components/pages/ChildSlugPage';
 
+ const SingleProductChildCategoryPage =  ({params}) =>  {
+  console.log('params');
+  console.log(params);
+  const {child_slug, slug} = params;
 
- const SingleProductChildCategoryPage = async () =>  {
-  const router = useRouter(); //router.query.child_id.toString()
-  const product = await fetchSingleProductAsync(router.query.child_slug.toString() || '') || {id: '', name: '', slug: '', img: '', parentCategoryID: '', parentCategorySlug: ''} as Product;
-  const category = fetchChildCategoryProducts(router.query.child_slug.toString() || '');
-  if(category.length > 0)
-    return (
-      <>
-        <ProductsContainer  slug={router.query.child_slug.toString() || ''} isChild={true} parentSlug={router.query.child_slug.toString()}/>
-      </>
-    );
-  else return (
-    <ProductContainer product={product}/>
+  return (
+    <ChildSlugPage child_slug={child_slug} slug={slug}/>
+  
   );
 }
 

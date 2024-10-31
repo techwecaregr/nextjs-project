@@ -1,11 +1,7 @@
-
 import CategoriesContainer from '@/components/categories/CategoriesContainer';
-
 function RepairsPage() {
   return (
-    <>
-      <CategoriesContainer   />
-    </>
+    <CategoriesContainer  />
   );
 }
 export default RepairsPage;

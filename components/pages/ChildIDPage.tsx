@@ -1,14 +1,12 @@
 import { fetchSingleProductAsync } from '@/utils/actions';
 import ProductContainer from '@/components/single-product/ProductContainer';
-export interface Params {
-  slug?: string;
-  child_slug?: string;
-  child_id?: string;
-}
+import { useRouter } from 'next/router';
 
-const ChildIDPage = async ({ params }: {params:Params})  => {
-  const {child_id} = params;
-  const product = await fetchSingleProductAsync(child_id || '');
+
+const ChildIDPage = async ()  => {
+  const router = useRouter(); //router.query.child_id.toString()
+
+  const product = await fetchSingleProductAsync(router.query.child_id.toString() || '');
   return (
     <ProductContainer product={product}/>
   );

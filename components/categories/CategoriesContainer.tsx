@@ -2,18 +2,11 @@ import CategoriesGrid from './CategoriesGrid';
 import { fetchAllChildCategoriesAsync, fetchAllParentCategoriesAsync } from '@/utils/actions';
 import BreadCrumbs from '@/components/single-product/BreadCrumbs';
 
-async function CategoriesContainer({
-  parentSlug
-}: {
-  parentSlug?: string;
-}) : Promise<JSX.Element> {
-  // let categories:Category[]= [];
-  // if(parentSlug!=undefined)
-  //   categories = fetchAllChildCategories(parentSlug)
-  // else  categories =  fetchAllParentCategories();
+async function CategoriesContainer({parentSlug} :{parentSlug?:string}) : Promise<JSX.Element> {
   let categories;
+
   if(parentSlug!=undefined)
-    categories = await fetchAllChildCategoriesAsync(parentSlug)
+    categories = await fetchAllChildCategoriesAsync(parentSlug.toString())
   else  categories =  await fetchAllParentCategoriesAsync();
   const totalCategories = categories.length;
   return (
