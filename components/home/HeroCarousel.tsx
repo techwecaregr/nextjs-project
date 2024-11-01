@@ -11,11 +11,12 @@ import {
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
 
-const carouselImages = [hero1, hero2, hero3];
+const carouselImages = [hero3, hero2, hero1];
 
 function HeroCarousel() {
+  //hidden lg:block
   return (
-    <div className='hidden lg:block'>
+    <div className=''> 
       <Carousel>
         <CarouselContent>
           {carouselImages.map((image, index) => {
@@ -37,8 +38,8 @@ function HeroCarousel() {
         {
           carouselImages.length > 1 &&
           <>
-            <CarouselPrevious />
-            <CarouselNext />
+            <CarouselPrevious className='hidden lg:block'/>
+            <CarouselNext  className='hidden lg:block'/>
           </>
         }
 

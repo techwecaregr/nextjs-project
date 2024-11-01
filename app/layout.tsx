@@ -7,8 +7,8 @@ import { Roboto } from 'next/font/google';
 import Providers from './providers';
 export const metadata: Metadata = {
   title: "TechWeCare",
-  description: "Your guides in the world of technology!",
-  keywords: "Repairs, Fix, Screen"
+  description: "Η φροντίδα που χρειάζονται οι συσκευές σας",
+  keywords: "Επισκευές, Αλλαγή οθόνης, Αλλαγή μπαταρίας, Αναβαθμίσεις"
 };
 
 const roboto = Roboto({ subsets: ['latin'], weight: ['400']});

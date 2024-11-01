@@ -30,7 +30,7 @@ function RepairContainer({repair} : {repair:Repair}){
                         />
                     </div>
                     <div>
-                        <h6 className='text-xs text-center'>{repair.name}</h6>
+                        <h6 className='text-sm text-center'>{repair.name}</h6>
                         <div className='bg-purple-400 rounded m-1'>
                             <h6 className='p-1 m-1 text-xs  text-center'>{uiPrice}</h6>
                         </div>

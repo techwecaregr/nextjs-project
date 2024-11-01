@@ -28,11 +28,11 @@ const Footer = () => {
                 </div> 
                 {/* Contact Info */} 
                 <div className="flex items-center flex-col"> 
-                    <h3 className="text-lg font-semibold mb-4">Contact Us</h3> 
+                    <h3 className="text-lg font-semibold mb-4">Επικοινωνία</h3> 
                     <ul className="border-t  py-6 space-y-2"> 
                         <li className="flex items-center hover:text-[#5dedf8]"> 
                             <Phone className="w-5 h-5 mr-2" /> 
-                            <a href="tel:+30 2108062200" className="hover:text-[#5dedf8]"> 2108062200 </a> 
+                            <a href="tel:2108062200" className="hover:text-[#5dedf8]"> 2108062200 </a> 
                         </li> 
                         <li className="flex items-center hover:text-[#5dedf8]"> <Mail className="w-5 h-5 mr-2" /> 
                             <a href="mailto:techwecarepefki@gmail.com" className="hover:text-[#5dedf8]"> techwecarepefki@gmail.com </a> 
@@ -45,7 +45,7 @@ const Footer = () => {
                 </div> 
                 {/* Social Media Links */} 
                 <div className="flex items-center flex-col"> 
-                    <h3 className="text-lg font-semibold mb-4">Follow Us</h3> 
+                    <h3 className="text-lg font-semibold mb-4">Social</h3> 
                     <div className="border-t  py-6  flex space-x-4"> 
                         <a href="https://instagram.com/techwecare_pefki" target="_blank" rel="noopener noreferrer"> 
                             <Instagram className="w-6 h-6 hover:text-[#5dedf8]" /> 

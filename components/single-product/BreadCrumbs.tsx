@@ -13,14 +13,14 @@ import {
         <BreadcrumbList>
           <BreadcrumbItem>
             <BreadcrumbLink href='/' className='capitalize text-lg'>
-              home
+              Αρχική
             </BreadcrumbLink>
           </BreadcrumbItem>
   
           <BreadcrumbSeparator />
           <BreadcrumbItem>
             <BreadcrumbLink href='/repairs' className='capitalize text-lg'>
-              repairs
+              Επισκευές
             </BreadcrumbLink>
           </BreadcrumbItem>
   
