@@ -23,8 +23,13 @@ const ChildSlugPage = async ({ child_slug, slug }: ChildSlugPageProps): Promise<
             parentCategoryID: '',
             parentCategorySlug: '',
         } as Product;
-
-        return <ProductContainer product={product} />;
+        if(product && product?.id)    
+            return <ProductContainer product={product} />;
+        else 
+            return           <h5 className='text-2xl mt-16'>
+            Sorry, no products...
+          </h5>
+         
     }
 };
 

@@ -237,8 +237,7 @@ const products:Product[] = [
       const parentID = category[0].id;
       return db.childCategory.findMany({
         orderBy:{ order: 'asc'},
-        where: {...(parentID && {parentCategoryID: parentID})
-        }
+        where: {parentCategoryID: parentID}
       })
     }
     else return [];
