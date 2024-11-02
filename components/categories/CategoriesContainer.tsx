@@ -4,7 +4,6 @@ import BreadCrumbs from '@/components/single-product/BreadCrumbs';
 
 async function CategoriesContainer({parentSlug} :{parentSlug?:string}) : Promise<JSX.Element> {
   let categories;
-
   if(parentSlug!=undefined)
     categories = await fetchAllChildCategoriesAsync(parentSlug.toString())
   else  categories =  await fetchAllParentCategoriesAsync();

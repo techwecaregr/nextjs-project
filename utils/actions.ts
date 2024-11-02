@@ -140,12 +140,24 @@ const products:Product[] = [
   export const fetchChildCategoryProducts = (slug:string) => {
     const empty:Product[] = [];
     const {id} = childCategories.find(item=>item.slug == slug) || {name: '', img: ''}
-    console.log('slug inner')
-    console.log(slug)
-    console.log('slug id')
-    console.log(id)
     if(id != undefined)
       return products.filter(item=>item.childCategoryID == id) || empty
+    else return empty;
+  };
+
+  export const fetchChildCategoryProductsAsync2 = async (slug:string) => {
+    const empty:Product[] = [];
+    const category = await db.category.findMany({
+      where: {...(slug && {slug: slug})
+      }
+    })
+    const {id} = category.find(item=>item.slug == slug);
+    if(id != undefined)
+      return db.product.findMany({
+        orderBy:{ order: 'asc'},
+        where: {...(id && {childCategoryID: id})
+        }
+      })
     else return empty;
   };
 
@@ -166,16 +178,14 @@ const products:Product[] = [
   };
 
   export const fetchAllChildCategoriesAsync = async(parentSlug?:string) => {
-    const category = await db.category.findMany({
-      where: {...(parentSlug && {slug: parentSlug})
-      }
+    const category = await db.childCategory.findMany({
+      where: {slug:parentSlug}
     })
-
     if(category.length>0){
       const parentID = category[0].id;
-      return db.childCategory.findMany({
+      return db.product.findMany({
         orderBy:{ order: 'asc'},
-        where: {...(parentID && {parentCategoryID: parentID})
+        where: {...(parentID && {childCategoryID: parentID})
         }
       })
     }
@@ -190,8 +200,6 @@ const products:Product[] = [
     })
     if(childCategory.length>0){
       const parentID = childCategory[0].parentCategoryID;
-      console.log('db parentID')
-      console.log(parentID)
       return db.product.findMany({
         orderBy:{ order: 'desc'},
         where: {parentCategoryID: parentID, childCategoryID: childCategory[0].id }
@@ -205,8 +213,6 @@ const products:Product[] = [
     const category = await db.category.findMany({
       where: {slug:slug }
     })
-    console.log('db category')
-    console.log(category)
     if(category.length>0){
       const id = category[0].id;
       return db.product.findMany({
@@ -229,8 +235,6 @@ const products:Product[] = [
     })
     if(category.length>0){
       const parentID = category[0].id;
-      console.log('db parentID')
-      console.log(parentID)
       return db.childCategory.findMany({
         orderBy:{ order: 'asc'},
         where: {...(parentID && {parentCategoryID: parentID})
@@ -250,23 +254,15 @@ const products:Product[] = [
   };
 
   export const getProductRepairsAsync = async (productID:string) => {
-    console.log('productID!!!');
-    console.log(productID);
     let result=[];
     try{
       const repairRecords = await db.repairServiceSingle.findMany({
         where: {productID:productID },
       }  );
-      console.log('repairRecords');
-      console.log(repairRecords);
       const repairRecordsCodes = repairRecords.map(record=>record.repairCode);
-      console.log('repairRecordsCodes');
-      console.log(repairRecordsCodes);
       const repairRecordsDetails = await db.repairService.findMany({
         where: {repairCode: {in:repairRecordsCodes} },
       })
-      console.log('repairRecordsDetails');
-      console.log(repairRecordsDetails);
       result=repairRecords.map(single=> {
         const relatedService = repairRecordsDetails.find(service=>service.repairCode ===single.repairCode);
         return {...single, ...relatedService,}
@@ -282,8 +278,6 @@ const products:Product[] = [
 
   export const fetchSearchProductsAsync = async (search:string) => {
     let result= [];
-    console.log('result');
-    console.log(search);
     try{
       result = await db.product.findMany({
         where: {name:{

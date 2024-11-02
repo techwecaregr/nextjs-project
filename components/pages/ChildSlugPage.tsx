@@ -1,4 +1,4 @@
-import { fetchSingleProductAsync, fetchChildCategoryProducts, Product } from '@/utils/actions';
+import { fetchSingleProductAsync, fetchAllChildCategoriesAsync, Product } from '@/utils/actions';
 import ProductsContainer from '@/components/products/ProductsContainer';
 import ProductContainer from '@/components/single-product/ProductContainer';
 
@@ -9,7 +9,7 @@ interface ChildSlugPageProps {
 
 const ChildSlugPage = async ({ child_slug, slug }: ChildSlugPageProps): Promise<JSX.Element> => {
     // Fetch the child category products
-    const categoryProducts =  fetchChildCategoryProducts(child_slug);
+    const categoryProducts =  await fetchAllChildCategoriesAsync(child_slug);
     const hasChildCategoryProducts = categoryProducts.length > 0;
 
     if (hasChildCategoryProducts) {
