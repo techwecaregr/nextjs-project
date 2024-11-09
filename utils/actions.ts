@@ -266,7 +266,7 @@ const products:Product[] = [
         const relatedService = repairRecordsDetails.find(service=>service.repairCode ===single.repairCode);
         return {...single, ...relatedService,}
       });
-
+      result = sortBy(result, "order");
       return result;
     }
     catch (error) {
@@ -274,6 +274,14 @@ const products:Product[] = [
     }
     return  [];
   };
+
+  const sortBy = (array:any, key:string, ascending:boolean = true) => {
+    return array.sort((a:any,b:any)=>{
+      if(a[key] < b[key]) return ascending ? -1 : 1;
+      if(a[key] > b[key]) return ascending ? 1 : -1;
+      return 0;
+    })
+  }
 
   export const fetchSearchProductsAsync = async (search:string) => {
     let result= [];

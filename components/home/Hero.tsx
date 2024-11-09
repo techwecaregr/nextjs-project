@@ -14,7 +14,7 @@ function Hero() {
         <p className='mt-8 max-w-xl text-lg leading-8 text-muted-foreground'>
         Ό,τι κι αν χρειάζεται η συσκευή σας, το αναλαμβάνουμε με φροντίδα και συνέπεια. Από την επισκευή μιας σπασμένης οθόνης μέχρι την ανάκτηση πολύτιμων δεδομένων, σας προσφέρουμε υπηρεσίες με πάθος, ακρίβεια και ταχύτητα. <br/><br/>Εξυπηρετούμε κινητά, υπολογιστές, laptops και tablets με επαγγελματισμό και ανθρώπινη προσέγγιση, γιατί η τεχνολογία σας αξίζει την απόλυτη φροντίδα!
         </p>
-        <Button asChild size='lg' className='mt-10'>
+        <Button asChild size='lg' className='mt-8'>
           <Link href='/repairs'>Επισκευές</Link>
         </Button>
       </div>
