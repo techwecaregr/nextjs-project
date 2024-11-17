@@ -177,6 +177,14 @@ const products:Product[] = [
     })
   };
 
+  export const fetchHomeCategoriesAsync = async () => {
+    const slugs = ['apple', 'samsung', 'xiaomi', 'huawei'];
+    return db.category.findMany({
+      where: {slug: {in: slugs}} ,
+      orderBy:{ order: 'asc'}
+    })
+  };
+
   export const fetchAllChildCategoriesAsync = async(parentSlug?:string) => {
     const category = await db.childCategory.findMany({
       where: {slug:parentSlug}

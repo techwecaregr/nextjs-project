@@ -6,9 +6,9 @@ import Footer from "@/components/footer/Footer";
 import { Roboto } from 'next/font/google';
 import Providers from './providers';
 export const metadata: Metadata = {
-  title: "TechWeCare",
-  description: "Η φροντίδα που χρειάζονται οι συσκευές σας",
-  keywords: "Επισκευές, Αλλαγή οθόνης, Αλλαγή μπαταρίας, Αναβαθμίσεις"
+  title: "TechWeCare | Επισκευές κινητών, Θήκες, Gadgets τεχνολογίας",
+  description: "Επισκευές κινητών, tablet, laptop σε Πεύκη, Μαρούσι, Μεταμόρφωση, Ηράκλειο - Προστασία συσκευής - Αναβαθμίσεις λογισμικού και είδη τεχνολογίας.",
+  keywords: "Επισκευές κινητών, Επισκευή μητρικής πλακέτας, Αλλαγή οθόνης, Αλλαγή μπαταρίας, Άμεση επισκευή, Αναβαθμίσεις υπολογιστών, Αναβαθμίσεις laptop, Θήκες κινητών, Φορτιστές, Τζαμάκια προστασίας, Προστασία οθόνης, Προστασία κάμερας, Μεταφορά δεδομένων"
 };
 
 const roboto = Roboto({ subsets: ['latin'], weight: ['400']});
@@ -19,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="el" suppressHydrationWarning>
       <body className={roboto.className}>
         <Providers>
           <Navbar/>
