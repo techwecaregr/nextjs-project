@@ -22,18 +22,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="el" suppressHydrationWarning>
-                  <Script id="next"
-                async
-                src={`https://www.googletagmanager.com/gtag/js?id=G-8G3SM5ERQ8`}>
-            </Script>
-            <Script id="next">
-                {
-                    `window.dataLayer = window.dataLayer || [];
-                    function gtag(){dataLayer.push(arguments);}
-                    gtag('js', new Date());
-                    gtag('config', 'G-8G3SM5ERQ8');`
-                }
-            </Script>
+      <Script
+        strategy="lazyOnload"
+        src={`https://www.googletagmanager.com/gtag/js?id=G-8G3SM5ERQ8`}
+      />
+
+      <Script id="ga-script" strategy="lazyOnload">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-8G3SM5ERQ8', {
+            page_path: window.location.pathname,
+          });
+              `}
+      </Script>
       <body className={roboto.className}>
         <Providers>
           <Navbar/>
