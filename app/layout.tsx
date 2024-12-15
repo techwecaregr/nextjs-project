@@ -5,6 +5,8 @@ import Container from "@/components/global/Container";
 import Footer from "@/components/footer/Footer";
 import { Roboto } from 'next/font/google';
 import Providers from './providers';
+import Script from "next/script";
+
 export const metadata: Metadata = {
   title: "TechWeCare | Επισκευές κινητών, Θήκες, Gadgets τεχνολογίας",
   description: "Επισκευές κινητών, tablet, laptop σε Πεύκη, Μαρούσι, Μεταμόρφωση, Ηράκλειο - Προστασία συσκευής - Αναβαθμίσεις λογισμικού και είδη τεχνολογίας.",
@@ -20,6 +22,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="el" suppressHydrationWarning>
+                  <Script id="next"
+                async
+                src={`https://www.googletagmanager.com/gtag/js?id=G-8G3SM5ERQ8`}>
+            </Script>
+            <Script id="next">
+                {
+                    `window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', 'G-8G3SM5ERQ8');`
+                }
+            </Script>
       <body className={roboto.className}>
         <Providers>
           <Navbar/>
