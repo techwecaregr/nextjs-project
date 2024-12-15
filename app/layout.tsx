@@ -6,7 +6,6 @@ import Footer from "@/components/footer/Footer";
 import { Roboto } from 'next/font/google';
 import Providers from './providers';
 import Script from "next/script";
-import {GoogleTagManager} from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   title: "TechWeCare | Επισκευές κινητών, Θήκες, Gadgets τεχνολογίας",
@@ -23,7 +22,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="el" suppressHydrationWarning>
-      <GoogleTagManager gtmId="G-8G3SM5ERQ8"/>
+      <Script
+        strategy="lazyOnload"
+        src={`https://www.googletagmanager.com/gtag/js?id=G-8G3SM5ERQ8`}
+      />
+
+      <Script id="ga-script" strategy="lazyOnload">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-8G3SM5ERQ8', {
+            page_path: window.location.pathname,
+          });
+              `}
+      </Script>
       <body className={roboto.className}>
         <Providers>
           <Navbar/>
